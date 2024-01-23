@@ -31,10 +31,10 @@ function displayWeather(){
 
 async function getCoordinates(cityName){
     try{
-        let response = await fetch ("http://api.positionstack.com/v1/forward?access_key=ae54919cf026e2c6e78b7fd29d118521&query=" + cityName);
+        let response = await fetch ("https://us1.locationiq.com/v1/search?key=pk.bf7be254176f5f8daa0b5262992b2793&q=" + cityName + "%20&format=json");
         let coordinates = await response.json();
-        let lat = coordinates.data[0].latitude;
-        let long = coordinates.data[0].longitude;
+        let lat = coordinates[0].boundingbox.lat;
+        let long = coordinates[0].boundingbox.lon;
 
         searchWeather(lat, long, cityName);
     } catch (error){

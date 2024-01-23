@@ -4,6 +4,20 @@
 
 //https://api.open-meteo.com/v1/forecast?latitude=50.4114&longitude=4.4445&hourly=temperature_2m,weather_code
 
+import clear from "./resources/clear.svg";
+import cloudy from "./resources/cloudy.svg";
+import foggy from "./resources/foggy.svg";
+import heavy_rain from "./resources/heavy_rain.svg";
+import heavy_snow from "./resources/heavy_snow.svg";
+import partly_cloudy from "./resources/partly_cloudy.svg";
+import rainy from "./resources/rainy.svg";
+import severe_cold from "./resources/severe_cold.svg";
+import severe_heat from "./resources/severe_heat.svg";
+import snow_grains from "./resources/snow_grains.svg";
+import snowing from "./resources/snowing.svg";
+import thunderstorm from "./resources/thunderstorm.svg";
+import windy from "./resources/windy.svg";
+
 let inputBox = document.querySelector("#inputBox");
 
 let submitButton = document.querySelector("#submitButton");
@@ -91,49 +105,49 @@ async function searchWeather(latitude, longitude, cityName){
 
 function displayImage(code, element){
     if (code < 1){
-        displayIcon("clear", "Clear", element);
+        displayIcon(clear, "Clear", element);
     } else if (code < 3){
-        displayIcon("partly_cloudy", "Partly cloudy", element);
+        displayIcon(partly_cloudy, "Partly cloudy", element);
     } else if (code < 9){
-        displayIcon("cloudy", "Cloudy", element);
+        displayIcon(cloudy, "Cloudy", element);
     } else if (code < 14){
-        displayIcon("foggy", "Foggy", element);
+        displayIcon(foggy, "Foggy", element);
     } else if (code < 20){
-        displayIcon("windy", "Windy", element);
+        displayIcon(windy, "Windy", element);
     } else if (code < 22){
-        displayIcon("rainy", "Rainy", element);
+        displayIcon(rainy, "Rainy", element);
     } else if (code < 25){
-        displayIcon("snowy", "Snowy", element);
+        displayIcon(snowing, "Snowy", element);
     } else if (code < 26){
-        displayIcon("heavy_rain", "Heavy rain", element);
+        displayIcon(heavy_rain, "Heavy rain", element);
     } else if (code < 28){
-        displayIcon("heavy_snow", "Heavy snow", element);
+        displayIcon(heavy_snow, "Heavy snow", element);
     } else if (code < 29){
-        displayIcon("foggy", "Foggy", element);
+        displayIcon(foggy, "Foggy", element);
     } else if (code < 30){
-        displayIcon("thunderstorm", "Thunderstorm", element);
+        displayIcon(thunderstorm, "Thunderstorm", element);
     } else if (code > 39 && code < 50){
-        displayIcon("foggy", "Foggy", element);
+        displayIcon(foggy, "Foggy", element);
     } else if (code > 49 && code < 56){
-        displayIcon("partly_cloudy", "Partly cloudy", element);
+        displayIcon(partly_cloudy, "Partly cloudy", element);
     } else if (code > 55 && code < 70){
-        displayIcon("rainy", "Rainy", element);
+        displayIcon(rainy, "Rainy", element);
     } else if (code > 69 && code < 77){
-        displayIcon("snowy", "Snowy", element);
+        displayIcon(snowing, "Snowy", element);
     } else if (code > 76 && code < 80){
-        displayIcon("snow_grains", "Snow grains", element);
+        displayIcon(snow_grains, "Snow grains", element);
     } else if (code > 79 && code < 85){
-        displayIcon("heavy_rain", "Heavy rain", element);
+        displayIcon(heavy_rain, "Heavy rain", element);
     } else if (code > 84 && code < 91){
-        displayIcon("heavy_snow", "Heavy snow", element);
+        displayIcon(heavy_snow, "Heavy snow", element);
     } else if (code > 90 && code < 93){
-        displayIcon("rainy", "Rain", element);
+        displayIcon(rainy, "Rain", element);
     } else if (code > 92 && code < 95){
-        displayIcon("snowy", "Snowy", element);
+        displayIcon(snowing, "Snowy", element);
     } else if (code > 94 && code < 100){
-        displayIcon("thunderstorm", "Thunderstorm", element);
+        displayIcon(thunderstorm, "Thunderstorm", element);
     } else {
-        displayIcon("partly_cloudy", "Partly cloudy", element);
+        displayIcon(partly_cloudy, "Partly cloudy", element);
     }
 }
 
@@ -144,7 +158,7 @@ function displayIcon(state_code, state, element){
     element.appendChild(title);
 
     let image = document.createElement("img");
-    image.src = "resources/" + state_code + ".svg";
+    image.src = state_code;
     image.className = "weatherIcons";
     element.appendChild(image);
 }

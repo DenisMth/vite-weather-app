@@ -33,8 +33,8 @@ async function getCoordinates(cityName){
     try{
         let response = await fetch ("https://us1.locationiq.com/v1/search?key=pk.bf7be254176f5f8daa0b5262992b2793&q=" + cityName + "%20&format=json");
         let coordinates = await response.json();
-        let lat = coordinates[0].boundingbox.lat;
-        let long = coordinates[0].boundingbox.lon;
+        let lat = coordinates[0].lat;
+        let long = coordinates[0].lon;
 
         searchWeather(lat, long, cityName);
     } catch (error){
